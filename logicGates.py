@@ -85,7 +85,14 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-i', '--input', type=str, help="Insira o circuito booleano.")
+    parser.add_argument('-i', '--input', default=None, type=str, help="Insira o circuito booleano.")
 
     args = parser.parse_args()
-    main(args)
+    
+    if args.input == None: 
+        print('''
+    Por favor, insira um input para o programa, após -i ou --input, exemplo:
+
+    python logicGates.py -i "NOT((((A)AND(B))OR(NOT(C)))AND(D))"''')
+    else:
+        main(args)
